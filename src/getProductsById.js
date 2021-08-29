@@ -2,7 +2,7 @@ import { data } from './mockData';
 
 const getProductsByIdHandler = async (event, ctx, cb) => {
     const { productId } = event.pathParameters;
-    const product = data.filter((i) => i.id === productId);
+    const product = data.filter((i) => i.id === productId)[0] ?? null;
 
     return {
         statusCode: 200,
