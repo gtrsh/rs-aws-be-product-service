@@ -9,6 +9,7 @@ plugins:
 
 provider:
   name: aws
+  stage: production
   runtime: nodejs14.x
   profile: app-rs-user
   region: eu-west-1
@@ -21,9 +22,10 @@ functions:
           method: get
           path: /products
           cors: true
-  second:
-    handler: index.hello
+  getProductsById:
+    handler: index.getProductsByIdHandler
     events:
       - httpApi:
           method: get
-          path: /second/{id}
+          path: /products/{productId}
+          cors: true
